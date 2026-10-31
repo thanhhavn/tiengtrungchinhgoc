@@ -66,17 +66,22 @@
  .megaAll{padding-top:11px}
 }
 
+
+.topTools{display:flex;align-items:center;gap:18px}.topTools a{color:#fff;text-decoration:none}.topTools a:hover{color:var(--gold)}
+.langSwitch{display:inline-flex;align-items:center;gap:7px;font-weight:700}.langBtn{border:0;background:transparent;color:#cbd6df;padding:0 2px;font-size:12px;font-weight:800}.langBtn.active{color:var(--gold)}.langBtn:hover{color:#fff}
+@media(max-width:680px){.topTools{gap:12px}.topline{font-size:11px}}
 </style>
 </head>
 <body>
-<div class="topline"><div class="container"><span>正宗华语 · TIẾNG TRUNG CHÍNH GỐC</span><span>Học thực tế · Nói tự nhiên · Dùng tự tin</span></div></div>
+<div class="topline"><div class="container"><span>正宗华语 · TIẾNG TRUNG CHÍNH GỐC</span><span class="topTools"><a href="#contact" data-i18n="topContact">Liên hệ / Contact</a><span class="langSwitch" aria-label="Choose language"><button type="button" class="langBtn active" data-lang="vi">VI</button><span>|</span><button type="button" class="langBtn" data-lang="en">EN</button></span></span></div></div>
 <header class="nav">
   <div class="container navinner">
     <a class="brand" href="#home" aria-label="Tiếng Trung Chính Gốc - Trang chủ">
       <span class="brandmark">正</span><span class="brandname">TIẾNG TRUNG CHÍNH GỐC<small>正宗华语 · PRACTICAL CHINESE</small></span>
     </a>
     <nav class="navlinks" id="navlinks">
-      <a href="#about">Giới thiệu</a>
+      <a href="#home" data-i18n="navHome">Trang chủ</a>
+      <a href="#about" data-i18n="navAbout">Giới thiệu</a>
       <div class="navDropdown" id="courseNavDropdown">
         <button class="navDropToggle" id="courseNavToggle" type="button" aria-expanded="false" aria-controls="courseMegaMenu">Khóa học <span class="chevron">⌄</span></button>
         <div class="courseMegaMenu" id="courseMegaMenu">
@@ -122,9 +127,9 @@
           <a class="megaAll" href="#courses">Xem toàn bộ chương trình <span>→</span></a>
         </div>
       </div>
-      <a href="#method">Phương pháp</a><a href="#faq">Câu hỏi thường gặp</a>
+      <a href="#method" data-i18n="navMethod">Phương pháp</a><a href="#faq" data-i18n="navFaq">Câu hỏi thường gặp</a><a href="#contact" data-i18n="navContact">Liên hệ</a>
     </nav>
-    <a class="navcta" href="#courses">Chọn khóa học <span>↗</span></a>
+    <a class="navcta" href="#courses"><span data-i18n="navCta">Chọn khóa học</span> <span>↗</span></a>
     <button class="menuBtn" id="menuBtn" aria-label="Mở menu">☰</button>
   </div>
 </header>
@@ -192,7 +197,7 @@
   <details><summary>Tôi có thể thanh toán trực tiếp trên website chưa?</summary><p>Giao diện hiện tại là bản nền tảng. Thanh toán trực tuyến và lưu hồ sơ đăng ký cần được kết nối với cổng thanh toán và dịch vụ xử lý dữ liệu trước khi sử dụng thật.</p></details>
 </div></div></section>
 </main>
-<footer class="footer"><div class="container">
+<footer class="footer" id="contact"><div class="container">
   <div class="footerGrid"><div><a class="brand" href="#home"><span class="brandmark">正</span><span class="brandname">TIẾNG TRUNG CHÍNH GỐC<small>正宗华语</small></span></a><p style="max-width:360px;margin-top:17px">Học để nói – Luyện để dùng. Chương trình tiếng Trung hướng đến giao tiếp tự nhiên và ứng dụng thực tế trong đời sống, học tập và công việc.</p></div><div><h4>Chương trình</h4><div class="footerLinks"><a href="#courses">Giao tiếp đời sống</a><a href="#courses">Giao tiếp công việc</a><a href="#courses">Nâng cao</a><a href="#courses">HSK & kỳ thi</a><a href="#courses">Tiếng Trung trẻ em</a></div></div><div><h4>Thông tin</h4><div class="footerLinks"><a href="#about">Giới thiệu</a><a href="#method">Phương pháp học</a><a href="#faq">Câu hỏi thường gặp</a><a href="#courses">Đăng ký khóa học</a></div><p>Thông tin liên hệ sẽ được bổ sung trước khi công bố website chính thức.</p></div></div>
   <div class="copyright"><span>© <span id="year"></span> Tiếng Trung Chính Gốc · 正宗华语</span><span>Học thực tế. Nói tự nhiên. Dùng tự tin.</span></div>
 </div></footer>
@@ -219,6 +224,269 @@
   </div>
 </div>
 <script>
+
+const languageCopy = {
+  vi: {
+    topContact:"Liên hệ / Contact", navHome:"Trang chủ", navAbout:"Giới thiệu",
+    navMethod:"Phương pháp", navFaq:"Câu hỏi thường gặp", navContact:"Liên hệ",
+    navCta:"Chọn khóa học", courseMenu:"Khóa học", menuEyebrow:"CHƯƠNG TRÌNH ĐÀO TẠO",
+    menuTitle:"Chọn đúng lộ trình,<br>học đúng mục tiêu.", menuNote:"Mở từng nhóm để xem các khóa học chuyên biệt.",
+    menuDaily:"Giao tiếp đời sống", menuDailySub:"Giao tiếp hằng ngày & đi lại",
+    menuWork:"Giao tiếp công việc", menuWorkSub:"Văn phòng, kinh doanh, ngành nghề",
+    menuAdvanced:"Tiếng Trung nâng cao", menuAdvancedSub:"Diễn đạt tự nhiên, chuyên sâu",
+    menuHsk:"HSK & các kỳ thi", menuHskSub:"Lộ trình theo cấp độ và mục tiêu thi",
+    menuKids:"Tiếng Trung trẻ em", menuKidsSub:"Học qua trò chơi và tình huống",
+    menuAll:"Xem toàn bộ chương trình", heroEyebrow:"Learn Chinese for real life",
+    heroTitle:"Học tiếng Trung", heroTitleAccent:"để tự tin mở lời.",
+    heroText:"Không chỉ học thuộc sách vở. Bạn luyện nói qua tình huống đời thật, phản xạ giao tiếp và cách diễn đạt tự nhiên để dùng tiếng Trung trong cuộc sống, công việc và kinh doanh.",
+    heroExplore:"Khám phá khóa học", heroAbout:"Tìm hiểu phương pháp",
+    heroMeta1:"Thực hành", heroMeta1Sub:"Ưu tiên nghe – nói", heroMeta2:"Ứng dụng", heroMeta2Sub:"Tình huống đời thật",
+    heroMeta3:"Linh hoạt", heroMeta3Sub:"Nhiều mục tiêu học", heroPanelTitle:"中文，学了就要用。",
+    heroPanelText:"Học tiếng Trung là để sử dụng được trong cuộc sống thật.",
+    trust1:"Ưu tiên thực hành nói", trust1Sub:"Học để giao tiếp được",
+    trust2:"Phát âm và diễn đạt", trust2Sub:"Luyện cách nói tự nhiên",
+    trust3:"Nội dung linh hoạt", trust3Sub:"Theo mục tiêu của bạn",
+    trust4:"Mọi lứa tuổi", trust4Sub:"Trẻ em đến người đi làm",
+    aboutStamp:"正宗华语 · LEARN BY DOING", aboutVisualTitle:"Học điều bạn cần.<br>Nói điều bạn muốn.",
+    aboutVisualText:"Từ lần đầu chào hỏi đến cuộc họp, thương lượng mua bán hay giao tiếp trong công xưởng — học tiếng Trung gắn liền với tình huống bạn thật sự gặp.",
+    aboutQuote:"Học để nói – Luyện để dùng.", aboutEyebrow:"Về chúng tôi",
+    aboutTitle:"Tiếng Trung thực tế, không khô khan sách vở.",
+    aboutP1:"Tiếng Trung Chính Gốc hướng đến việc giúp học viên sử dụng tiếng Trung tự tin trong đời sống và công việc. Thay vì chỉ ghi nhớ từ vựng, người học được luyện nghe, nói, phản xạ và thực hành theo tình huống cụ thể.",
+    aboutP2:"Đội ngũ giảng dạy định hướng phát âm chuẩn bản xứ, cách diễn đạt tự nhiên và kinh nghiệm giảng dạy lâu năm. Lộ trình được điều chỉnh theo trình độ, mục tiêu và lĩnh vực của từng học viên.",
+    aboutFeature1:"Luyện nói ngay từ đầu", aboutFeature2:"Tình huống đời thật",
+    aboutFeature3:"Ngôn ngữ theo ngành nghề", aboutFeature4:"Có mục tiêu và lộ trình",
+    coursesEyebrow:"Chương trình đào tạo", coursesTitle:"Chọn khóa học phù hợp với mục tiêu của bạn",
+    coursesIntro:"5 nhóm khóa học chính, kết hợp các chuyên đề thực hành theo nhu cầu. Nhấn “Xem chi tiết & đăng ký” để xem mục tiêu, nội dung, đối tượng và thời lượng dự kiến.",
+    filterAll:"Tất cả khóa học", filterDaily:"Giao tiếp đời sống", filterWork:"Công việc & kinh doanh",
+    filterAdvanced:"Nâng cao", filterHsk:"HSK & kỳ thi", filterKids:"Trẻ em",
+    specialtyEyebrow:"Chuyên đề thực tế", specialtyTitle:"Tiếng Trung theo tình huống và ngành nghề",
+    specialtyIntro:"Các chuyên đề có thể được tích hợp vào khóa chính hoặc thiết kế thành lộ trình riêng theo nhu cầu học viên.",
+    methodEyebrow:"Phương pháp học", methodTitle:"Ít học vẹt hơn. Thực hành nhiều hơn.",
+    methodIntro:"Học theo mục tiêu, đưa ngôn ngữ vào tình huống và lặp lại có hướng dẫn để tăng phản xạ.",
+    method1:"Nghe mẫu tự nhiên", method1Text:"Làm quen cách phát âm, nhịp điệu và cách diễn đạt trong ngữ cảnh.",
+    method2:"Nói theo tình huống", method2Text:"Luyện hội thoại có mục tiêu thay vì chỉ đọc và chép từ vựng.",
+    method3:"Đóng vai thực tế", method3Text:"Thực hành các tình huống đời sống, công việc hoặc ngành nghề.",
+    method4:"Nhận phản hồi", method4Text:"Sửa phát âm, cách dùng từ và cách diễn đạt để tiến bộ từng bước.",
+    startEyebrow:"Bắt đầu học", startTitle:"3 bước để chọn đúng khóa học",
+    startIntro:"Chưa biết nên học từ đâu? Hãy chọn mục tiêu trước, sau đó xác định trình độ và lịch học phù hợp.",
+    step1:"Chọn mục tiêu", step1Text:"Giao tiếp, công việc, kinh doanh, du học, du lịch, trẻ em hoặc luyện thi.",
+    step2:"Xem lộ trình", step2Text:"Đọc chi tiết khóa học và điều chỉnh theo trình độ, thời gian của bạn.",
+    step3:"Gửi đăng ký", step3Text:"Để lại thông tin và khung giờ phù hợp để được xác nhận lộ trình, học phí và lịch khai giảng.",
+    bandTitle:"Sẵn sàng mở lời bằng tiếng Trung?", bandText:"Chọn khóa học phù hợp và bắt đầu từ mục tiêu của bạn.",
+    bandCta:"Xem các khóa học →", faqEyebrow:"Câu hỏi thường gặp", faqTitle:"Trước khi đăng ký",
+    faq1:"Chưa biết tiếng Trung có học được không?", faq1Text:"Có. Học viên mới bắt đầu có thể chọn khóa giao tiếp đời sống hoặc khóa dành cho trẻ em theo độ tuổi và trình độ.",
+    faq2:"Khóa học kéo dài bao lâu?", faq2Text:"Thời lượng hiển thị trong phần chi tiết là dự kiến. Lộ trình thực tế nên được xác nhận dựa trên trình độ đầu vào, mục tiêu và lịch học.",
+    faq3:"Học phí và lịch học được xác nhận như thế nào?", faq3Text:"Học phí, hình thức học, lịch học và chính sách học phí cần được trung tâm xác nhận trước khi học viên thanh toán.",
+    faq4:"Tôi có thể học tiếng Trung cho ngành nghề riêng không?", faq4Text:"Có thể xây dựng chuyên đề theo nhu cầu như mua bán hàng Trung Quốc, nhà hàng, cửa hàng, công xưởng hoặc giao tiếp doanh nghiệp.",
+    faq5:"Tôi có thể thanh toán trực tiếp trên website chưa?", faq5Text:"Giao diện hiện tại là bản nền tảng. Thanh toán trực tuyến và lưu hồ sơ đăng ký cần được kết nối với cổng thanh toán và dịch vụ xử lý dữ liệu trước khi sử dụng thật.",
+    footerTagline:"Học để nói – Luyện để dùng. Chương trình tiếng Trung hướng đến giao tiếp tự nhiên và ứng dụng thực tế trong đời sống, học tập và công việc.",
+    footerCourses:"Chương trình", footerInfo:"Thông tin", footerAbout:"Giới thiệu", footerMethod:"Phương pháp học",
+    footerFaq:"Câu hỏi thường gặp", footerEnroll:"Đăng ký khóa học",
+    footerContact:"Thông tin liên hệ sẽ được bổ sung trước khi công bố website chính thức.",
+    footerSlogan:"Học thực tế. Nói tự nhiên. Dùng tự tin.",
+    modalSubtitle:"Lộ trình học thực tế theo mục tiêu của bạn", detailGoals:"Mục tiêu khóa học",
+    detailContent:"Nội dung chính", detailAudience:"Đối tượng phù hợp", detailDuration:"Thời lượng dự kiến",
+    detailFee:"Học phí", feeText:"Sẽ được trung tâm xác nhận theo lộ trình và hình thức học.",
+    enrollTitle:"Đăng ký tư vấn khóa học", enrollHint:"Điền thông tin để trung tâm xác nhận trình độ, lịch học và học phí trước khi thanh toán.",
+    studentName:"Họ và tên *", namePlaceholder:"Nhập họ tên của bạn", phone:"Số điện thoại *",
+    phonePlaceholder:"Số điện thoại liên hệ", email:"Email (nếu có)", level:"Trình độ hiện tại",
+    format:"Hình thức học mong muốn", schedule:"Thời gian có thể học",
+    schedulePlaceholder:"Ví dụ: tối các ngày trong tuần", goal:"Mục tiêu hoặc yêu cầu riêng",
+    goalPlaceholder:"Bạn muốn sử dụng tiếng Trung trong tình huống nào?",
+    notice:"Bản demo hiện chưa gửi dữ liệu đến trung tâm và chưa thu tiền. Cần kết nối biểu mẫu có lưu dữ liệu, chính sách quyền riêng tư và cổng thanh toán trước khi nhận đăng ký thật.",
+    submit:"Kiểm tra thông tin đăng ký", cancel:"Để sau", close:"Đóng",
+    modalTitle:"Chi tiết khóa học", demoMessage:"Thông tin đã được kiểm tra trên giao diện mẫu, nhưng CHƯA được gửi đến trung tâm. Trước khi nhận đăng ký thật, cần kết nối biểu mẫu lưu dữ liệu và quy trình xác nhận học phí/thanh toán.",
+    courseCode:"Mã khóa học:", courseGoal:"Mục tiêu:", courseAudience:"Đối tượng:",
+    courseDuration:"Thời lượng:", courseContent:"Nội dung:", cardInfo:"Thông tin lịch học và học phí sẽ được tư vấn theo trình độ, mục tiêu.",
+    cardButton:"Xem chi tiết & đăng ký →", durationLabel:"Dự kiến"
+  },
+  en: {
+    topContact:"Contact us", navHome:"Home", navAbout:"About", navMethod:"Our Approach",
+    navFaq:"FAQs", navContact:"Contact", navCta:"Find a Course", courseMenu:"Courses",
+    menuEyebrow:"CHINESE LANGUAGE PROGRAMMES", menuTitle:"Choose your path.<br>Learn with purpose.",
+    menuNote:"Open a category to explore its specialist courses.",
+    menuDaily:"Everyday Chinese", menuDailySub:"Daily conversations & getting around",
+    menuWork:"Chinese for Work", menuWorkSub:"Office, business and industry-specific use",
+    menuAdvanced:"Advanced Chinese", menuAdvancedSub:"Speak with greater range and nuance",
+    menuHsk:"HSK & Exam Preparation", menuHskSub:"Level-based learning with clear exam goals",
+    menuKids:"Chinese for Children", menuKidsSub:"Learn through games and real-life themes",
+    menuAll:"Explore all courses", heroEyebrow:"CHINESE FOR EVERYDAY LIFE, WORK AND BUSINESS",
+    heroTitle:"Learn Chinese", heroTitleAccent:"with the confidence to speak.",
+    heroText:"Move beyond memorising textbook phrases. Build real speaking confidence through practical scenarios, interactive conversation and natural expressions you can use in everyday life, at work and in business.",
+    heroExplore:"Explore Courses", heroAbout:"Discover Our Approach",
+    heroMeta1:"Practical", heroMeta1Sub:"Speaking comes first", heroMeta2:"Relevant", heroMeta2Sub:"Real-world situations",
+    heroMeta3:"Flexible", heroMeta3Sub:"Learning built around your goals",
+    heroPanelTitle:"中文，学了就要用。", heroPanelText:"Learn Chinese to use it confidently in real life.",
+    trust1:"Speaking-focused practice", trust1Sub:"Learn to communicate with confidence",
+    trust2:"Pronunciation & expression", trust2Sub:"Develop natural-sounding speech",
+    trust3:"Flexible course content", trust3Sub:"Built around your learning goals",
+    trust4:"For every age group", trust4Sub:"From children to working adults",
+    aboutStamp:"正宗华语 · LEARN BY DOING",
+    aboutVisualTitle:"Learn what you need.<br>Say what you mean.",
+    aboutVisualText:"From your first greeting to a business meeting, a supplier negotiation or a conversation on the factory floor, learn Chinese through situations you are likely to encounter.",
+    aboutQuote:"Learn to speak. Practise to use.", aboutEyebrow:"ABOUT US",
+    aboutTitle:"Practical Chinese for real communication.",
+    aboutP1:"Tiếng Trung Chính Gốc helps learners use Chinese with confidence in everyday life and at work. Rather than focusing on memorising vocabulary alone, lessons build listening, speaking and conversational response through practical, carefully chosen scenarios.",
+    aboutP2:"Our teaching approach places emphasis on clear, natural pronunciation, authentic expressions and experienced instruction. Each learning path can be adapted to the learner’s current level, goals and professional field.",
+    aboutFeature1:"Start speaking from day one", aboutFeature2:"Real-life scenarios",
+    aboutFeature3:"Language for your industry", aboutFeature4:"Clear goals and a learning path",
+    coursesEyebrow:"OUR COURSES", coursesTitle:"Find the right course for your goals",
+    coursesIntro:"Explore five core learning areas, with practical specialist modules available to suit your needs. Select “Course Details & Enquire” to see the objectives, content, intended learners and estimated duration.",
+    filterAll:"All Courses", filterDaily:"Everyday Chinese", filterWork:"Work & Business",
+    filterAdvanced:"Advanced", filterHsk:"HSK & Exams", filterKids:"Children",
+    specialtyEyebrow:"PRACTICAL SPECIALIST MODULES",
+    specialtyTitle:"Chinese for real situations and specific industries",
+    specialtyIntro:"These modules can be included in a core course or developed into a tailored learning path.",
+    methodEyebrow:"OUR APPROACH", methodTitle:"Less memorising. More meaningful practice.",
+    methodIntro:"Learn with a clear goal, use the language in context and practise with guidance to build stronger conversational skills.",
+    method1:"Listen to natural speech", method1Text:"Get familiar with pronunciation, rhythm and expressions in context.",
+    method2:"Speak in context", method2Text:"Practise purposeful conversations instead of only reading and copying vocabulary.",
+    method3:"Role-play real situations", method3Text:"Put your Chinese into practice in everyday, workplace and industry-specific scenarios.",
+    method4:"Get constructive feedback", method4Text:"Improve pronunciation, word choice and phrasing step by step.",
+    startEyebrow:"GETTING STARTED", startTitle:"Three steps to finding your course",
+    startIntro:"Not sure where to begin? Start with your goal, then find a course that fits your level and schedule.",
+    step1:"Define your goal", step1Text:"Choose everyday conversation, work, business, study abroad, travel, children’s classes or exam preparation.",
+    step2:"Explore your learning path", step2Text:"Review the course details and tailor the plan to your level and availability.",
+    step3:"Send an enquiry", step3Text:"Share your details and preferred times so the centre can confirm the learning plan, fees and start dates.",
+    bandTitle:"Ready to start speaking Chinese?", bandText:"Find a course that matches your goals and take the first step.",
+    bandCta:"Explore Courses →", faqEyebrow:"FREQUENTLY ASKED QUESTIONS", faqTitle:"Before you enquire",
+    faq1:"Can I start learning Chinese as a complete beginner?", faq1Text:"Yes. Beginners can start with Everyday Chinese. Children can join a course designed around their age and current level.",
+    faq2:"How long does a course take?", faq2Text:"Durations shown in the course details are estimates. Your actual learning plan will depend on your starting level, goals and study schedule.",
+    faq3:"How are course fees and schedules confirmed?", faq3Text:"The centre will confirm the fees, learning format, schedule and payment terms before you make a payment.",
+    faq4:"Can I learn Chinese for my specific industry?", faq4Text:"Yes. Specialist modules can be tailored to areas such as sourcing from China, retail, restaurants, factories and business communication.",
+    faq5:"Can I pay for a course directly on the website?", faq5Text:"Not yet. The current website is a front-end preview. Online payments and secure enquiry storage must be connected to appropriate services before they can be used.",
+    footerTagline:"Learn to speak. Practise to use. Practical Chinese courses designed for natural communication in everyday life, education and the workplace.",
+    footerCourses:"Courses", footerInfo:"Information", footerAbout:"About us",
+    footerMethod:"Our approach", footerFaq:"FAQs", footerEnroll:"Course enquiries",
+    footerContact:"Contact details will be added before the official website launch.",
+    footerSlogan:"Learn practically. Speak naturally. Use Chinese with confidence.",
+    modalSubtitle:"A practical learning path built around your goals", detailGoals:"COURSE OBJECTIVES",
+    detailContent:"WHAT YOU WILL LEARN", detailAudience:"WHO THIS COURSE IS FOR",
+    detailDuration:"ESTIMATED DURATION", detailFee:"COURSE FEES",
+    feeText:"The centre will confirm the fee based on your learning plan and course format.",
+    enrollTitle:"Enquire about this course",
+    enrollHint:"Share your details so the centre can confirm your level, schedule and course fees before payment.",
+    studentName:"Full name *", namePlaceholder:"Enter your full name", phone:"Phone number *",
+    phonePlaceholder:"Your contact number", email:"Email (optional)", level:"Current Chinese level",
+    format:"Preferred learning format", schedule:"When are you available?",
+    schedulePlaceholder:"e.g. weekday evenings", goal:"Your goals or specific requirements",
+    goalPlaceholder:"How would you like to use Chinese?",
+    notice:"This is a front-end demo. Your information is NOT sent to the centre and no payment is collected. A secure form service, privacy process and payment gateway must be connected before accepting real enrolments.",
+    submit:"Review enquiry", cancel:"Maybe later", close:"Close",
+    modalTitle:"Course details",
+    demoMessage:"Your information has been checked in this website preview, but it has NOT been sent to the centre. A secure form service and a process for confirming fees and payment must be connected before real enquiries can be received.",
+    courseCode:"Course code:", courseGoal:"Goal:", courseAudience:"Who it’s for:",
+    courseDuration:"Duration:", courseContent:"What you’ll learn:",
+    cardInfo:"The centre will advise on schedules and fees based on your level and goals.",
+    cardButton:"Course Details & Enquire →", durationLabel:"Estimated"
+  }
+};
+
+const courseEnglish = {
+ daily:{title:"Everyday Chinese Communication",short:"Speak with confidence in the situations you encounter every day.",tags:["Beginners","Listening & speaking"],duration:"Estimated 8–12 weeks, depending on your level and study frequency.",intro:"Build practical communication skills through familiar, everyday situations you can use straight away.",goals:["Greet people, introduce yourself and take part in simple conversations.","Ask for directions, shop, order food, get around and handle common situations.","Improve listening, speaking and the ability to express yourself naturally."],content:["Pronunciation, tones and essential sentence patterns.","Topic-based everyday dialogues, role-play and speaking practice.","Useful vocabulary, personalised corrections and scenario-based review."],audience:"Beginners and learners who want to travel, make Chinese-speaking friends or use Chinese in daily life."},
+ work:{title:"Chinese Communication for the Workplace",short:"Use Chinese in the office, meetings and conversations with colleagues.",tags:["Working professionals","Professional communication"],duration:"Estimated 8–12 weeks; tailored to your industry and current level.",intro:"Learn to communicate clearly, politely and effectively in a professional environment.",goals:["Discuss tasks, ask and answer questions and give progress updates.","Take part in meetings, make calls, send messages and write basic emails.","Choose appropriate expressions and communicate more professionally."],content:["Workplace vocabulary and practical expressions.","Conversations with managers, colleagues and business partners.","Meetings, phone calls, emails, reports and problem-solving scenarios."],audience:"Office staff, managers and professionals who work with Chinese-speaking colleagues or companies."},
+ advanced:{title:"Advanced Chinese",short:"Expand your vocabulary and express ideas in more depth and detail.",tags:["Intermediate and above","Advanced expression"],duration:"Estimated 12 weeks or more, depending on your goals.",intro:"Develop more flexible expression, a stronger sense of context and the confidence to discuss a wider range of topics.",goals:["Present opinions and explain ideas clearly.","Understand natural expressions, nuances and similar words.","Speak more fluently in discussions on a variety of topics."],content:["Topic-based vocabulary and natural word combinations.","Discussion, storytelling, presentations and critical response.","Grammar and expression feedback with guided speaking practice."],audience:"Learners with an existing foundation who want greater fluency, accuracy or confidence in study and work."},
+ hsk:{title:"Practical Chinese with HSK Preparation",short:"Build communication skills while preparing for your target HSK level.",tags:["HSK 1–6","Exam-focused learning"],duration:"Estimated 3–6 months per stage; an entry-level assessment is recommended.",intro:"Combine practical Chinese with the knowledge and skills needed for HSK or other relevant examinations.",goals:["Build vocabulary and grammar at the appropriate level.","Develop listening, reading, writing and test-taking skills.","Connect exam knowledge with practical language use."],content:["Initial assessment and a level-based study plan.","Vocabulary, grammar, listening, reading and writing.","Practice tests, error analysis and targeted revision."],audience:"Learners preparing for HSK certification, further study or work requiring proof of Chinese proficiency."},
+ kids:{title:"Chinese Communication for Children",short:"Learn through pictures, games, stories and short conversations.",tags:["Children","Fun, active learning"],duration:"Age-based learning paths, usually arranged in 8–12 week stages.",intro:"Build a positive foundation in Chinese through activities suited to each child’s age and learning pace.",goals:["Become familiar with Chinese sounds, vocabulary and simple expressions.","Greet others, introduce themselves and talk about familiar topics.","Develop positive language-learning habits through enjoyable activities."],content:["Topics such as family, school, food, colours and hobbies.","Songs, games, pictures and short conversations.","Age-appropriate listening, speaking and gentle revision."],audience:"Children. Content, pace and lesson length are adapted to each child’s age and ability."},
+ business:{title:"Chinese for Business Owners and Entrepreneurs",short:"Discuss business, negotiate terms and work with Chinese partners.",tags:["Business owners","Trade & commerce"],duration:"Estimated 6–12 weeks, depending on your sector and goals.",intro:"Practise the Chinese needed for commercial discussions and business relationships.",goals:["Introduce your company, products and partnership needs.","Ask for prices, negotiate terms and confirm orders.","Communicate clearly in common business situations."],content:["Commercial vocabulary and negotiation expressions.","Simulated meetings, price discussions and partner communication.","Scenarios tailored to your products, services or industry."],audience:"Business owners, sales professionals, purchasing staff and people who deal with Chinese partners."},
+ sourcing:{title:"Chinese for Sourcing and Supplier Communication",short:"Ask about prices, place orders, inspect goods and discuss logistics.",tags:["Sourcing from China","Practical specialist module"],duration:"Estimated 4–8 weeks, depending on your sourcing process.",intro:"Focus on the language used when finding products and communicating with suppliers.",goals:["Ask about specifications, minimum order quantities, prices and lead times.","Confirm samples, quality, packaging and shipping arrangements.","Resolve order issues clearly and politely."],content:["Product, size, material, quantity and pricing vocabulary.","Ordering, payment, inspection and delivery conversations.","Practical messages and common problem-solving scenarios."],audience:"Business owners, buyers and anyone who regularly sources or purchases goods from China."},
+ hospitality:{title:"Chinese for Retail, Restaurants and Customer Service",short:"Welcome customers, recommend products, take orders and handle requests.",tags:["Customer service","Industry-specific"],duration:"Estimated 4–8 weeks, tailored to your type of business.",intro:"Practise the expressions you need when serving Chinese-speaking customers.",goals:["Welcome customers and offer assistance.","Introduce products, take orders, quote prices and process payments.","Handle requests, complaints and common service situations."],content:["Expressions for shops, restaurants, bars and service businesses.","Vocabulary for products, food, prices and payment methods.","Staff–customer role-plays based on real situations."],audience:"Shop owners, retail staff, restaurant and bar teams, hotel staff and service professionals."},
+ factory:{title:"Chinese for Factories and Manufacturing",short:"Communicate with supervisors and colleagues on the production floor.",tags:["Factories","Safety & procedures"],duration:"Estimated 4–10 weeks, depending on the workplace and role.",intro:"Build the vocabulary and speaking skills needed in factories and manufacturing environments.",goals:["Understand and communicate routine work instructions.","Report progress, quantities, product defects and incidents.","Discuss tools, procedures and basic workplace safety."],content:["Vocabulary for jobs, machinery, products and production processes.","Practical questions and answers with managers and colleagues.","Shift handovers, defect reporting, inspection and safety reminders."],audience:"Factory workers, team leaders, managers, technicians and staff working with Chinese manufacturers."},
+ travel:{title:"Fast-Track Chinese for Travel and Going Abroad",short:"Learn essential phrases for airports, hotels, dining and getting around.",tags:["Fast-track","Travel & going abroad"],duration:"An intensive 2–6 week path, depending on your departure date.",intro:"Focus on essential situations before travelling or going abroad.",goals:["Communicate at airports, hotels, restaurants and tourist attractions.","Ask for directions, buy tickets, book transport and request help.","Handle common travel needs with greater confidence."],content:["Essential questions and answers with pronunciation practice.","Role-play for arrival, hotel check-in, shopping and transport.","Quick-review materials based on your travel schedule."],audience:"People preparing for travel, business trips or going abroad who need practical Chinese in a short time."},
+ study:{title:"Fast-Track Chinese for Study Abroad",short:"Prepare for study-related communication and daily life in China.",tags:["Future students","Fast-track"],duration:"Estimated 4–12 weeks, depending on your level and departure date.",intro:"Build the Chinese needed for everyday life, school and your first steps as a student in China.",goals:["Communicate in dormitories, schools and everyday settings.","Ask for information, handle basic procedures and talk with classmates.","Learn useful academic vocabulary and cultural expressions."],content:["Vocabulary for school, classes, accommodation and services.","Practical dialogues for enrolment and daily student life.","Listening and speaking practice for common student situations."],audience:"School and university students preparing to study or join an educational programme in China."}
+};
+
+let currentLanguage = "vi";
+function copy(key){return languageCopy[currentLanguage][key] || languageCopy.vi[key] || key;}
+function currentCourse(course){return currentLanguage==="en" ? {...course,...courseEnglish[course.id]} : course;}
+function setText(selector,key){const el=document.querySelector(selector);if(el)el.textContent=copy(key);}
+function setHTML(selector,key){const el=document.querySelector(selector);if(el)el.innerHTML=copy(key);}
+function applyLanguage(lang){
+  currentLanguage = lang==="en" ? "en" : "vi";
+  document.documentElement.lang=currentLanguage;
+  document.querySelectorAll(".langBtn").forEach(b=>b.classList.toggle("active",b.dataset.lang===currentLanguage));
+  const topSlogan=document.querySelector('[data-i18n="topSlogan"]');if(topSlogan)topSlogan.textContent=currentLanguage==="en"?"Learn practically · Speak naturally · Use Chinese with confidence":"Học thực tế · Nói tự nhiên · Dùng tự tin";
+  const simple = {
+    ".topTools a":"topContact", ".navcta [data-i18n]":"navCta", "#courseNavToggle":"courseMenu", ".megaEyebrow":"menuEyebrow", ".megaNote":"menuNote",
+    ".megaAll":"menuAll", ".hero .eyebrow":"heroEyebrow", ".heroPanel h3":"heroPanelTitle",
+    ".heroPanel p":"heroPanelText", ".aboutVisual .stamp":"aboutStamp", ".aboutVisual p":"aboutVisualText",
+    ".aboutText .eyebrow":"aboutEyebrow", ".aboutText h2":"aboutTitle",
+    ".sectionHead .eyebrow":"", "#faq .sectionHead h2":"faqTitle",
+    ".ctaBand h2":"bandTitle", ".ctaBand p":"bandText", ".ctaBand .btn":"bandCta",
+    ".footerGrid h4":"", ".footerGrid > div:first-child > p":"footerTagline",
+    ".copyright span:last-child":"footerSlogan", "#modalSubtitle":"modalSubtitle",
+    ".formArea h3":"enrollTitle", ".formArea .hint":"enrollHint", ".notice":"notice",
+    "#enrollForm button[type=submit]":"submit", "#cancelModal":"cancel",
+    "#detailFee":"feeText"
+  };
+  Object.entries(simple).forEach(([sel,key])=>{if(key)setText(sel,key)});
+  const setAll=(selector,keys)=>document.querySelectorAll(selector).forEach((el,i)=>{if(keys[i])el.textContent=copy(keys[i])});
+  setAll(".navlinks > a",["navHome","navAbout","navMethod","navFaq","navContact"]);
+  setAll(".megaGroup",[]); 
+  const parents=document.querySelectorAll(".megaParent");
+  ["menuDaily","menuWork","menuAdvanced","menuHsk","menuKids"].forEach((k,i)=>{
+    const strong=parents[i]?.querySelector("strong");if(strong)strong.textContent=copy(k);
+  });
+  ["menuDailySub","menuWorkSub","menuAdvancedSub","menuHskSub","menuKidsSub"].forEach((k,i)=>{
+    const small=parents[i]?.querySelector("small");if(small)small.textContent=copy(k);
+  });
+  setHTML(".megaIntro strong","menuTitle");
+  const childLabels = currentLanguage==="en" ?
+    ["Everyday Chinese Communication","Fast-Track Travel Chinese","Workplace Chinese","Chinese for Business Owners","Sourcing & Chinese Suppliers","Chinese for Retail, Restaurants & Service","Chinese for Factories & Manufacturing","Fast-Track Chinese for Study Abroad","Advanced Chinese","Chinese Communication with HSK Preparation","Chinese for Children"] :
+    ["Giao tiếp đời sống hằng ngày","Cấp tốc du lịch & xuất ngoại","Giao tiếp trong công việc","Kinh doanh & chủ doanh nghiệp","Mua hàng & nhà cung cấp Trung Quốc","Cửa hàng, nhà hàng & dịch vụ","Công xưởng & sản xuất","Cấp tốc chuẩn bị du học","Tiếng Trung nâng cao","Giao tiếp kết hợp luyện thi HSK","Tiếng Trung giao tiếp cho trẻ em"];
+  document.querySelectorAll(".megaChildren button").forEach((b,i)=>{if(childLabels[i])b.textContent=childLabels[i]});
+  const menuAll=document.querySelector(".megaAll");if(menuAll)menuAll.innerHTML=copy("menuAll")+" <span>→</span>";
+  const heroHeading=document.querySelector(".hero h1");if(heroHeading)heroHeading.innerHTML=copy("heroTitle")+"<br><span>"+copy("heroTitleAccent")+"</span>";
+  setText(".hero > .container .heroGrid > div > p","heroText");
+  const heroButtons=document.querySelectorAll(".heroActions a");if(heroButtons[0])heroButtons[0].innerHTML=copy("heroExplore")+" <span>→</span>";if(heroButtons[1])heroButtons[1].textContent=copy("heroAbout");
+  const heroMeta=document.querySelectorAll(".heroMeta strong");["heroMeta1","heroMeta2","heroMeta3"].forEach((k,i)=>{if(heroMeta[i])heroMeta[i].textContent=copy(k)});
+  const heroMetaSub=document.querySelectorAll(".heroMeta div span");["heroMeta1Sub","heroMeta2Sub","heroMeta3Sub"].forEach((k,i)=>{if(heroMetaSub[i])heroMetaSub[i].textContent=copy(k)});
+  const heroPoints=document.querySelectorAll(".heroPoint span:last-child");if(currentLanguage==="en"){["Native-speaking teachers with an emphasis on clear pronunciation and natural expressions.","Lessons shaped around your goals, industry and real-life situations.","Learning paths from beginner to advanced, including conversation and exam preparation."].forEach((v,i)=>{if(heroPoints[i])heroPoints[i].textContent=v})}else{["Giáo viên người Hoa/bản ngữ, chú trọng phát âm và cách nói tự nhiên.","Bài học theo tình huống, mục tiêu và ngành nghề của học viên.","Lộ trình từ căn bản đến nâng cao, giao tiếp và luyện thi."].forEach((v,i)=>{if(heroPoints[i])heroPoints[i].textContent=v})}
+  const trust=document.querySelectorAll(".trustitem");const trustKeys=[["trust1","trust1Sub"],["trust2","trust2Sub"],["trust3","trust3Sub"],["trust4","trust4Sub"]];trust.forEach((el,i)=>{const parts=el.querySelectorAll("span:last-child");if(parts[0])parts[0].innerHTML="<strong>"+copy(trustKeys[i][0])+"</strong><br>"+copy(trustKeys[i][1])});
+  setHTML(".aboutVisual h3","aboutVisualTitle");setText(".aboutVisual .quote","aboutQuote");
+  const aboutPs=document.querySelectorAll(".aboutText p");["aboutP1","aboutP2"].forEach((k,i)=>{if(aboutPs[i])aboutPs[i].textContent=copy(k)});
+  const features=document.querySelectorAll(".feature");["aboutFeature1","aboutFeature2","aboutFeature3","aboutFeature4"].forEach((k,i)=>{if(features[i])features[i].lastChild.textContent=" "+copy(k)});
+  const heads=document.querySelectorAll(".sectionHead");const headKeys=[["coursesEyebrow","coursesTitle","coursesIntro"],["specialtyEyebrow","specialtyTitle","specialtyIntro"],["methodEyebrow","methodTitle","methodIntro"],["startEyebrow","startTitle","startIntro"],["faqEyebrow","faqTitle",null]];
+  heads.forEach((el,i)=>{const keys=headKeys[i];if(!keys)return;const eyebrow=el.querySelector(".eyebrow"),h=el.querySelector("h2"),p=el.querySelector("p");if(eyebrow&&keys[0])eyebrow.textContent=copy(keys[0]);if(h&&keys[1])h.textContent=copy(keys[1]);if(p&&keys[2])p.textContent=copy(keys[2])});
+  const tabs=document.querySelectorAll(".courseTabs .tab");["filterAll","filterDaily","filterWork","filterAdvanced","filterHsk","filterKids"].forEach((k,i)=>{if(tabs[i])tabs[i].textContent=copy(k)});
+  const specialties=document.querySelectorAll(".specialty");const specialtyEN=[
+    ["Everyday communication","Greetings, shopping, dining, transport, making friends and daily routines."],
+    ["Chinese at work","Colleague communication, meetings, phone calls, messages and emails."],
+    ["Business owners & entrepreneurs","Introducing products, negotiating, quotations and partner relations."],
+    ["Sourcing and purchasing from China","Asking for prices, placing orders, inspections, shipping and supplier issues."],
+    ["Retail, restaurants and hospitality","Welcoming guests, recommendations, orders, payments and customer service."],
+    ["Chinese for factories","Communication with supervisors and colleagues, workplace safety and production processes."],
+    ["Fast-track travel and study abroad","Essential language for travel, arrival, study and daily life in China."],
+    ["Advanced Chinese","More nuanced expression, discussion, presentations and vocabulary development."],
+    ["HSK and other examinations","Vocabulary, grammar, listening, reading, writing and exam strategies."]
+  ];
+  const specialtyVI=[
+    ["Giao tiếp trong đời sống","Chào hỏi, mua sắm, ăn uống, đi lại, kết bạn và sinh hoạt hằng ngày."],
+    ["Giao tiếp trong công việc","Trao đổi với đồng nghiệp, họp, điện thoại, tin nhắn và email."],
+    ["Kinh doanh & chủ doanh nghiệp","Giới thiệu sản phẩm, đàm phán, báo giá, thương lượng và chăm sóc đối tác."],
+    ["Mua bán hàng Trung Quốc","Hỏi giá, đặt hàng, kiểm hàng, vận chuyển và xử lý vấn đề với nhà cung cấp."],
+    ["Cửa hàng, nhà hàng, quán bar","Đón khách, tư vấn, nhận đơn, thanh toán và phục vụ khách Trung Quốc."],
+    ["Giao tiếp trong công xưởng","Trao đổi với quản lý, đồng nghiệp, an toàn lao động và quy trình sản xuất."],
+    ["Du học & du lịch cấp tốc","Tình huống thiết yếu trước khi xuất ngoại, nhập cảnh và sinh hoạt tại Trung Quốc."],
+    ["Tiếng Trung nâng cao","Diễn đạt sâu hơn, thảo luận, trình bày quan điểm và mở rộng vốn từ."],
+    ["HSK và các kỳ thi","Từ vựng, ngữ pháp, nghe, đọc, viết và chiến lược làm bài theo mục tiêu thi."]
+  ];
+  specialties.forEach((el,i)=>{const pair=(currentLanguage==="en"?specialtyEN:specialtyVI)[i];if(pair){el.querySelector("h3").textContent=pair[0];el.querySelector("p").textContent=pair[1]}});
+  const methods=document.querySelectorAll(".method");["method1","method2","method3","method4"].forEach((k,i)=>{if(methods[i]){methods[i].querySelector("h3").textContent=copy(k);methods[i].querySelector("p").textContent=copy(k+"Text")}});
+  const steps=document.querySelectorAll(".step");["step1","step2","step3"].forEach((k,i)=>{if(steps[i]){steps[i].querySelector("h3").textContent=copy(k);steps[i].querySelector("p").textContent=copy(k+"Text")}});
+  const faq=document.querySelectorAll(".faq details");for(let i=0;i<5;i++){if(faq[i]){faq[i].querySelector("summary").textContent=copy("faq"+(i+1));faq[i].querySelector("p").textContent=copy("faq"+(i+1)+"Text")}}
+  const footerHeads=document.querySelectorAll(".footerGrid h4");if(footerHeads[0])footerHeads[0].textContent=copy("footerCourses");if(footerHeads[1])footerHeads[1].textContent=copy("footerInfo");
+  const footerLinks=document.querySelectorAll(".footerLinks a");const footerLabels=currentLanguage==="en"?["Everyday Chinese","Workplace Chinese","Advanced Chinese","HSK & Exam Preparation","Chinese for Children","About us","Our approach","FAQs","Course enquiries"]:["Giao tiếp đời sống","Giao tiếp công việc","Nâng cao","HSK & kỳ thi","Tiếng Trung trẻ em","Giới thiệu","Phương pháp học","Câu hỏi thường gặp","Đăng ký khóa học"];footerLinks.forEach((a,i)=>{if(footerLabels[i])a.textContent=footerLabels[i]});
+  const footerPs=document.querySelectorAll(".footerGrid > div > p");if(footerPs[1])footerPs[1].textContent=copy("footerContact");
+  const formLabels=document.querySelectorAll("#enrollForm label");const labelKeys=["studentName","phone","email","level","format","schedule","goal"];formLabels.forEach((el,i)=>{if(labelKeys[i])el.textContent=copy(labelKeys[i])});
+  const placeholders={studentName:"namePlaceholder",phone:"phonePlaceholder",schedule:"schedulePlaceholder",goal:"goalPlaceholder"};Object.entries(placeholders).forEach(([id,k])=>{const el=document.getElementById(id);if(el)el.placeholder=copy(k)});
+  const selects=document.querySelectorAll("#level option");const levelEN=["Beginner","Basic","Intermediate","Advanced","Not sure yet"];const levelVI=["Mới bắt đầu","Biết cơ bản","Trung cấp","Nâng cao","Chưa xác định"];selects.forEach((o,i)=>o.textContent=(currentLanguage==="en"?levelEN:levelVI)[i]||o.textContent);
+  const formatOptions=document.querySelectorAll("#format option");const formatEN=["Online 1-to-1","In person","Small group","I’d like advice"];const formatVI=["Online 1-1","Offline","Nhóm nhỏ","Cần tư vấn"];formatOptions.forEach((o,i)=>o.textContent=(currentLanguage==="en"?formatEN:formatVI)[i]||o.textContent);
+  setText("#detailFee","feeText");
+  renderCourses(document.querySelector(".tab.active")?.dataset.filter||"all");
+  if(selectedCourse)openCourse(selectedCourse.id);
+}
+
 const courses=[
 {id:'daily',category:'daily',icon:'☕',title:'Tiếng Trung giao tiếp đời sống hằng ngày',short:'Tự tin giao tiếp trong những tình huống bạn gặp mỗi ngày.',tags:['Người mới bắt đầu','Nghe – nói'],duration:'Dự kiến 8–12 tuần, tùy trình độ và tần suất học.',intro:'Xây nền tảng giao tiếp thực tế qua những tình huống gần gũi, dễ áp dụng ngay.',goals:['Chào hỏi, giới thiệu bản thân và trò chuyện cơ bản.','Hỏi đường, mua sắm, gọi món, đi lại và xử lý tình huống thường gặp.','Tăng phản xạ nghe – nói và diễn đạt tự nhiên hơn.'],content:['Phát âm, thanh điệu và mẫu câu thiết yếu.','Hội thoại theo chủ đề đời sống; đóng vai và luyện phản xạ.','Từ vựng thực tế, sửa lỗi diễn đạt và ôn tập theo tình huống.'],audience:'Người mới học, người muốn đi du lịch, giao tiếp với bạn bè hoặc sử dụng tiếng Trung trong sinh hoạt.'},
 {id:'work',category:'work',icon:'💼',title:'Tiếng Trung giao tiếp trong công việc',short:'Dùng tiếng Trung trong văn phòng, cuộc họp và trao đổi với đồng nghiệp.',tags:['Người đi làm','Giao tiếp chuyên nghiệp'],duration:'Dự kiến 8–12 tuần; điều chỉnh theo ngành nghề và trình độ.',intro:'Tập trung vào cách diễn đạt lịch sự, rõ ràng và hiệu quả trong môi trường làm việc.',goals:['Trao đổi công việc, hỏi – đáp và cập nhật tiến độ.','Tham gia họp, gọi điện, nhắn tin và viết email cơ bản.','Dùng từ phù hợp ngữ cảnh và giao tiếp chuyên nghiệp hơn.'],content:['Từ vựng và mẫu câu nơi làm việc.','Hội thoại với quản lý, đồng nghiệp và đối tác.','Tình huống họp, điện thoại, email, báo cáo và xử lý vấn đề.'],audience:'Nhân viên văn phòng, quản lý, người làm trong doanh nghiệp Trung Quốc hoặc thường xuyên dùng tiếng Trung.'},
@@ -235,22 +503,22 @@ const courses=[
 const grid=document.getElementById('courseGrid');
 function renderCourses(filter='all'){
   grid.innerHTML='';
-  courses.filter(c=>filter==='all'||c.category===filter).forEach(c=>{
+  courses.filter(c=>filter==='all'||c.category===filter).forEach(raw=>{ const c=currentCourse(raw);
     const card=document.createElement('article');
     card.className='courseCard';
     const code=String(courses.findIndex(item=>item.id===c.id)+1).padStart(3,'0');
-    card.innerHTML=`<div class="courseTop">KHÓA ${code} · ${c.title}</div>
+    card.innerHTML=`<div class="courseTop">${currentLanguage==="en"?"COURSE":"KHÓA"} ${code} · ${c.title}</div>
       <div class="courseBody">
         <p>${c.short}</p>
         <ul class="courseFacts">
-          <li><strong>Mã khóa học:</strong> ${code}</li>
-          <li><strong>Mục tiêu:</strong> ${c.goals[0]}</li>
-          <li><strong>Đối tượng:</strong> ${c.audience}</li>
-          <li><strong>Thời lượng:</strong> ${c.duration}</li>
-          <li><strong>Nội dung:</strong> ${c.content[0]}</li>
+          <li><strong>${copy("courseCode")}</strong> ${code}</li>
+          <li><strong>${copy("courseGoal")}</strong> ${c.goals[0]}</li>
+          <li><strong>${copy("courseAudience")}</strong> ${c.audience}</li>
+          <li><strong>${copy("courseDuration")}</strong> ${c.duration}</li>
+          <li><strong>${copy("courseContent")}</strong> ${c.content[0]}</li>
         </ul>
         <div class="tags">${c.tags.map(t=>`<span class="tag">${t}</span>`).join('')}</div>
-        <div class="courseBottom"><small>Thông tin lịch học và học phí sẽ được tư vấn theo trình độ, mục tiêu.</small><button type="button" data-course="${c.id}">Xem chi tiết & đăng ký →</button></div>
+        <div class="courseBottom"><small>${copy("cardInfo")}</small><button type="button" data-course="${c.id}">${copy("cardButton")}</button></div>
       </div>`;
     grid.appendChild(card);
   });
@@ -258,12 +526,14 @@ function renderCourses(filter='all'){
 renderCourses();
 document.getElementById('courseTabs').addEventListener('click',e=>{const b=e.target.closest('[data-filter]');if(!b)return;document.querySelectorAll('.tab').forEach(t=>t.classList.toggle('active',t===b));renderCourses(b.dataset.filter)});
 const modal=document.getElementById('courseModal');let selectedCourse=null;
-function openCourse(id){selectedCourse=courses.find(c=>c.id===id);if(!selectedCourse)return;document.getElementById('modalTitle').textContent=selectedCourse.title;document.getElementById('modalSubtitle').textContent='Chi tiết chương trình · Tiếng Trung Chính Gốc';document.getElementById('detailName').textContent=selectedCourse.title;document.getElementById('detailIntro').textContent=selectedCourse.intro;document.getElementById('detailGoals').innerHTML=selectedCourse.goals.map(x=>`<li>${x}</li>`).join('');document.getElementById('detailContent').innerHTML=selectedCourse.content.map(x=>`<li>${x}</li>`).join('');document.getElementById('detailAudience').textContent=selectedCourse.audience;document.getElementById('detailDuration').textContent=selectedCourse.duration;document.getElementById('demoMsg').classList.remove('show');modal.classList.add('open');document.body.style.overflow='hidden';}
+function openCourse(id){selectedCourse=courses.find(c=>c.id===id);if(!selectedCourse)return;const displayCourse=currentCourse(selectedCourse);document.getElementById('modalTitle').textContent=displayCourse.title;document.getElementById('modalSubtitle').textContent='Chi tiết chương trình · Tiếng Trung Chính Gốc';document.getElementById('detailName').textContent=displayCourse.title;document.getElementById('detailIntro').textContent=displayCourse.intro;document.querySelectorAll('.detailLabel')[0].textContent=copy('detailGoals');document.querySelectorAll('.detailLabel')[1].textContent=copy('detailContent');document.querySelectorAll('.detailLabel')[2].textContent=copy('detailAudience');document.querySelectorAll('.detailLabel')[3].textContent=copy('detailDuration');document.querySelectorAll('.detailLabel')[4].textContent=copy('detailFee');document.querySelector('.formArea h3').textContent=copy('enrollTitle');document.querySelector('.formArea .hint').textContent=copy('enrollHint');document.getElementById('detailGoals').innerHTML=displayCourse.goals.map(x=>`<li>${x}</li>`).join('');document.getElementById('detailContent').innerHTML=displayCourse.content.map(x=>`<li>${x}</li>`).join('');document.getElementById('detailAudience').textContent=displayCourse.audience;document.getElementById('detailDuration').textContent=displayCourse.duration;document.getElementById('demoMsg').classList.remove('show');modal.classList.add('open');document.body.style.overflow='hidden';}
 function closeCourse(){modal.classList.remove('open');document.body.style.overflow='';}
 grid.addEventListener('click',e=>{const b=e.target.closest('[data-course]');if(b)openCourse(b.dataset.course)});
 document.getElementById('closeModal').addEventListener('click',closeCourse);document.getElementById('cancelModal').addEventListener('click',closeCourse);modal.addEventListener('click',e=>{if(e.target===modal)closeCourse()});document.addEventListener('keydown',e=>{if(e.key==='Escape')closeCourse()});
-document.getElementById('enrollForm').addEventListener('submit',e=>{e.preventDefault();const msg=document.getElementById('demoMsg');msg.textContent='Thông tin đã được kiểm tra trên giao diện mẫu, nhưng CHƯA được gửi đến trung tâm. Trước khi nhận đăng ký thật, cần kết nối biểu mẫu lưu dữ liệu và quy trình xác nhận học phí/thanh toán.';msg.classList.add('show');});
+document.getElementById('enrollForm').addEventListener('submit',e=>{e.preventDefault();const msg=document.getElementById('demoMsg');msg.textContent=copy('demoMessage');msg.classList.add('show');});
 document.getElementById('menuBtn').addEventListener('click',()=>document.getElementById('navlinks').classList.toggle('show'));document.querySelectorAll('#navlinks a').forEach(a=>a.addEventListener('click',()=>document.getElementById('navlinks').classList.remove('show')));document.getElementById('year').textContent=new Date().getFullYear();
+document.querySelectorAll('.langBtn').forEach(button=>button.addEventListener('click',()=>applyLanguage(button.dataset.lang)));
+applyLanguage('vi');
 
 // Nested course menu: click to open, expand one category at a time, then open course details.
 const courseNavToggle = document.getElementById('courseNavToggle');
